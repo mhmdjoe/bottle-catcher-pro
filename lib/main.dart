@@ -59,7 +59,7 @@ class _GameScreenState extends State<GameScreen> with SingleTickerProviderStateM
   int _score = 0;
   int _highScore = 0;
   int _lives = 3;
-  double _gameSpeed = 2.5; 
+  double _gameSpeed = 3.0; // Increased base speed
   bool _milestoneReached = false;
   double _shakeIntensity = 0.0;
   int _ticksSinceLastSpawn = 0; // Prevent overlapping bottles
@@ -114,7 +114,7 @@ class _GameScreenState extends State<GameScreen> with SingleTickerProviderStateM
       // 2. Move bottles (Frame-Independent)
       // Speed is defined as % of screen height per second
       for (var bottle in _bottles) {
-        bottle.y += _gameSpeed * 0.08 * dt; // Reduced from 0.12 for slower movement
+        bottle.y += _gameSpeed * 0.20 * dt; // Increased from 0.08 for faster, snappier movement
       }
 
       // 3. Update Particles
@@ -185,7 +185,7 @@ class _GameScreenState extends State<GameScreen> with SingleTickerProviderStateM
       _particles.add(Particle(x: _playerX, y: 0.85));
     }
 
-    if (_score % 10 == 0) {
+    if (_score % 15 == 0) {
       _milestoneReached = true;
       _gameSpeed += 0.3;
     }
@@ -213,7 +213,7 @@ class _GameScreenState extends State<GameScreen> with SingleTickerProviderStateM
       _lives = 3;
       _milestoneReached = false;
       _gameState = GameState.playing;
-      _gameSpeed = 2.5; 
+      _gameSpeed = 3.0; // Starts faster on restart
       _playerX = 0.5;
       _shakeIntensity = 0.0;
       _ticksSinceLastSpawn = 0;
@@ -495,8 +495,8 @@ class _CelebrationCharacterState extends State<_CelebrationCharacter> with Singl
 
   @override
   Widget build(BuildContext context) {
-    // Determine which asset to show based on score (every 10 bottles)
-    int assetIndex = ((widget.score ~/ 10) - 1).clamp(0, celebrationAssets.length - 1);
+    // Determine which asset to show based on score (every 15 bottles)
+    int assetIndex = ((widget.score ~/ 15) - 1).clamp(0, celebrationAssets.length - 1);
     String currentAsset = celebrationAssets[assetIndex];
 
     return AnimatedBuilder(
