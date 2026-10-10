@@ -2,10 +2,13 @@
 
 An addictive 2D mobile arcade game built with Flutter, featuring real-time collision dynamics, increasing difficulty progression, high-score tracking, and interactive animations.
 
+👉 **[🌐 Play Game Live in Browser](https://mhmdjoe.github.io/bottle-catcher-pro/)** (Play instantly in your web browser!)
+
 ---
 
 ## 🌟 Key Features
 
+- 🌐 **Live Web Play**: Play the full arcade game directly in your browser without downloading anything.
 - 🎮 **Arcade Gameplay**: Catch falling bottles with responsive touch controls before they hit the ground.
 - ⚡ **Dynamic Difficulty**: Increasing fall velocity and spawn rates as score rises.
 - 🏆 **High Score Persistence**: Persistent leaderboard and high-score saving powered by `shared_preferences`.
@@ -17,7 +20,7 @@ An addictive 2D mobile arcade game built with Flutter, featuring real-time colli
 
 | Category | Technology |
 | :--- | :--- |
-| **Framework** | Flutter & Dart SDK |
+| **Framework** | Flutter (Dart SDK) & Flutter Web |
 | **Storage** | `shared_preferences` |
 | **Design & UI** | Flutter CustomPainter & Material Widgets |
 
